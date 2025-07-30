@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task_management_app/services/task_services.dart';
-import '../../models/task_model.dart';
+import '../../../models/task_model.dart';
 
 class AddTaskScreen extends StatefulWidget {
   final Task? task; // For editing existing tasks

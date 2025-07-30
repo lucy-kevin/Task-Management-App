@@ -6,7 +6,7 @@ import 'package:task_management_app/services/task_services.dart';
 import 'package:task_management_app/widgets/add_card.dart';
 import 'package:task_management_app/widgets/stat_card.dart';
 
-import '../../widgets/task_card.dart';
+import '../../../widgets/task_card.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
