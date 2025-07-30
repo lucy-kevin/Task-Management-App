@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { BarChart3, Users, CheckCircle } from 'lucide-react';
 
 const Sidebar = ({ currentPage, onPageChange, user, onLogout }) => {
@@ -9,43 +9,199 @@ const Sidebar = ({ currentPage, onPageChange, user, onLogout }) => {
     { id: 'analytics', label: 'Analytics', icon: BarChart3 }
   ];
 
+  const styles = {
+    sidebar: {
+      width: '16rem',
+      backgroundColor: '#1e40af',
+      color: 'white',
+      display: 'flex',
+      flexDirection: 'column',
+      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+      height: '100vh',
+      position: 'relative'
+    },
+    header: {
+      padding: '1.5rem',
+      borderBottom: '1px solid rgba(59, 130, 246, 0.3)',
+      backgroundColor: '#1d4ed8'
+    },
+    headerTitle: {
+      fontSize: '1.25rem',
+      fontWeight: 'bold',
+      margin: '0',
+      color: 'white'
+    },
+    nav: {
+      flex: '1',
+      paddingTop: '1.5rem',
+      paddingBottom: '1.5rem'
+    },
+    menuButton: {
+      width: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      padding: '0.75rem 1.5rem',
+      textAlign: 'left',
+      backgroundColor: 'transparent',
+      border: 'none',
+      color: 'white',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+      fontSize: '0.875rem',
+      fontWeight: '500',
+      position: 'relative'
+    },
+    menuButtonHover: {
+      backgroundColor: '#2563eb',
+      transform: 'translateX(4px)'
+    },
+    menuButtonActive: {
+      backgroundColor: '#2563eb',
+      borderRight: '4px solid white',
+      fontWeight: '600'
+    },
+    menuIcon: {
+      width: '1.25rem',
+      height: '1.25rem',
+      marginRight: '0.75rem',
+      transition: 'transform 0.3s ease'
+    },
+    menuIconActive: {
+      transform: 'scale(1.1)'
+    },
+    footer: {
+      padding: '1.5rem',
+      borderTop: '1px solid rgba(59, 130, 246, 0.3)',
+      backgroundColor: '#1d4ed8'
+    },
+    userInfo: {
+      display: 'flex',
+      alignItems: 'center',
+      marginBottom: '1rem'
+    },
+    avatar: {
+      width: '2.5rem',
+      height: '2.5rem',
+      backgroundColor: '#3b82f6',
+      borderRadius: '50%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontWeight: 'bold',
+      marginRight: '0.75rem',
+      fontSize: '1rem',
+      border: '2px solid white',
+      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+    },
+    userDetails: {
+      flex: '1',
+      minWidth: '0'
+    },
+    userName: {
+      fontSize: '0.875rem',
+      fontWeight: '500',
+      margin: '0',
+      color: 'white',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap'
+    },
+    userEmail: {
+      fontSize: '0.75rem',
+      margin: '0',
+      color: '#93c5fd',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap'
+    },
+    logoutButton: {
+      width: '100%',
+      backgroundColor: '#2563eb',
+      color: 'white',
+      padding: '0.75rem 1rem',
+      borderRadius: '0.5rem',
+      fontSize: '0.875rem',
+      fontWeight: '500',
+      border: 'none',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
+    },
+    logoutButtonHover: {
+      backgroundColor: '#1d4ed8',
+      transform: 'translateY(-1px)',
+      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.15)'
+    }
+  };
+
   return (
-    <div className="w-64 bg-gradient-to-b from-blue-600 to-blue-800 text-white flex flex-col shadow-xl">
-      <div className="p-6 border-b border-blue-500 border-opacity-30">
-        <h2 className="text-xl font-bold">Admin Panel</h2>
+    <div style={styles.sidebar}>
+      <div style={styles.header}>
+        <h2 style={styles.headerTitle}>Admin Panel</h2>
       </div>
       
-      <nav className="flex-1 py-6">
+      <nav style={styles.nav}>
         {menuItems.map((item) => {
           const Icon = item.icon;
+          const isActive = currentPage === item.id;
+          
           return (
             <button
               key={item.id}
               onClick={() => onPageChange(item.id)}
-              className={`w-full flex items-center px-6 py-3 text-left hover:bg-blue-700 transition-colors ${
-                currentPage === item.id ? 'bg-blue-700 border-r-4 border-white' : ''
-              }`}
+              style={{
+                ...styles.menuButton,
+                ...(isActive ? styles.menuButtonActive : {})
+              }}
+              onMouseEnter={(e) => {
+                if (!isActive) {
+                  Object.assign(e.currentTarget.style, styles.menuButtonHover);
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive) {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.transform = 'translateX(0)';
+                }
+              }}
             >
-              <Icon className="w-5 h-5 mr-3" />
+              <Icon 
+                style={{
+                  ...styles.menuIcon,
+                  ...(isActive ? styles.menuIconActive : {})
+                }} 
+              />
               {item.label}
             </button>
           );
         })}
       </nav>
 
-      <div className="p-6 border-t border-blue-500 border-opacity-30">
-        <div className="flex items-center mb-4">
-          <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center font-bold mr-3">
+      <div style={styles.footer}>
+        <div style={styles.userInfo}>
+          <div style={styles.avatar}>
             {(user?.displayName || user?.email || 'U')[0].toUpperCase()}
           </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium truncate">{user?.displayName || 'User'}</p>
-            <p className="text-xs text-blue-200 truncate">{user?.email}</p>
+          <div style={styles.userDetails}>
+            <p style={styles.userName}>
+              {user?.displayName || 'User'}
+            </p>
+            <p style={styles.userEmail}>
+              {user?.email}
+            </p>
           </div>
         </div>
         <button
+          style={styles.logoutButton}
           onClick={onLogout}
-          className="w-full bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded text-sm transition-colors"
+          onMouseEnter={(e) => {
+            Object.assign(e.currentTarget.style, styles.logoutButtonHover);
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = '#2563eb';
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+          }}
         >
           Sign Out
         </button>
@@ -53,4 +209,5 @@ const Sidebar = ({ currentPage, onPageChange, user, onLogout }) => {
     </div>
   );
 };
+
 export default Sidebar;

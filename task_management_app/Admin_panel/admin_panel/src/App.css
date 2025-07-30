@@ -476,20 +476,152 @@ body {
   /* App.css */
 .app {
   display: flex;
-}
-
-.main-content {
-  flex-grow: 1;
-  padding: 20px;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
 }
 
 .login-form {
-  max-width: 300px;
-  margin: 50px auto;
+  width: 100%;
+  max-width: 350px;
+  padding: 40px 30px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-form input,
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
 }
 
 .error {
   color: red;
+  text-align: center;
+  margin-top: 10px;
 }
+/* UserManagement.css */
+
+.user-management-container {
+  margin: 2rem 0;
+}
+
+.user-management-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937; /* Tailwind's gray-800 */
+  margin-bottom: 1rem;
+}
+
+.table-container {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table thead {
+  background-color: #f9fafb; /* Tailwind's gray-50 */
+}
+
+.user-table th {
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6b7280; /* Tailwind's gray-500 */
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+}
+
+.user-table td {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e5e7eb; /* Tailwind's gray-200 */
+  vertical-align: middle;
+}
+
+.user-row:hover {
+  background-color: #f9fafb;
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #dbeafe; /* Tailwind's blue-100 */
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.role-badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  padding: 0.25rem 0.5rem;
+  display: inline-block;
+}
+
+.role-admin {
+  background-color: #ede9fe; /* purple-100 */
+  color: #6b21a8; /* purple-800 */
+}
+
+.role-user {
+  background-color: #d1fae5; /* green-100 */
+  color: #065f46; /* green-800 */
+}
+
+.actions button {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.actions .edit {
+  color: #2563eb; /* blue-600 */
+}
+
+.actions .edit:hover {
+  color: #1d4ed8; /* blue-900 */
+}
+
+.actions .delete {
+  color: #dc2626; /* red-600 */
+}
+
+.actions .delete:hover {
+  color: #7f1d1d; /* red-900 */
+}
+
 
 }
