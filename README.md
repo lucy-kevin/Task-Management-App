@@ -61,7 +61,7 @@ This project consists of two main components:
 
    ```bash
    git clone https://github.com/lucy-kevin/Task-Management-App.git
-   cd task-management-app/mobile_app
+   cd task-management-app/TASK APP
    ```
 
 2. Install dependencies:
@@ -88,7 +88,7 @@ This project consists of two main components:
 1. Navigate to the dashboard folder:
 
    ```bash
-   cd ../dashboard
+   cd ../Admin_panel
    ```
 
 2. Install dependencies:
@@ -117,9 +117,9 @@ This project consists of two main components:
 ## Folder Structure
 
 ```
-/mobile_app       # Flutter app source code
-/dashboard        # React dashboard source code
-/firebase        # Firebase Cloud Functions (if applicable)
+/TASK APP      # Flutter app source code
+/Admin_panel        # React dashboard source code
+/firebase_config        # Firebase Cloud Functions (if applicable)
 README.md        # This file
 ```
 
@@ -136,18 +136,6 @@ Contributions are welcome! Please open an issue or submit a pull request for bug
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-## Contact
-
-For questions or support, please contact:
-
-* Your Name - [your.email@example.com](mailto:your.email@example.com)
-* GitHub: [yourusername](https://github.com/yourusername)
-
----
-
-If you want, I can help you customize it further or add specific sections like screenshots, API documentation, or deployment instructions!
-
 
 - Admin email admin@example.com
 - Admin password: 123456
