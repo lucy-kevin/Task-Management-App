@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "337910756528",
+    "project_id": "modern-erp-suite",
+    "storage_bucket": "modern-erp-suite.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:337910756528:android:e3a7776c84c8cea4dff775",
+        "android_client_info": {
+          "package_name": "com.example.epr_system"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6PMhxcD0l8TvMd0D9s0hcOPW4svuHmyY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
